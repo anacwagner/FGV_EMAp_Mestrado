@@ -6,7 +6,7 @@
    "source": [
     "# Introdução à Recuperação de Informações\n",
     "\n",
-    "# Lista de exercícios 1\n",
+    "# Lista de Exercícios 1\n",
     "\n",
     "## Ana Carolina Wagner G. de Barros\n",
     "\n",
@@ -227,7 +227,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 207,
+   "execution_count": 10,
    "metadata": {
     "collapsed": true
    },
@@ -317,7 +317,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 205,
+   "execution_count": 12,
    "metadata": {
     "collapsed": true
    },
@@ -329,7 +329,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 208,
+   "execution_count": 13,
    "metadata": {},
    "outputs": [
     {
@@ -362,7 +362,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 209,
+   "execution_count": 14,
    "metadata": {},
    "outputs": [
     {
@@ -401,7 +401,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 210,
+   "execution_count": 16,
    "metadata": {},
    "outputs": [
     {
@@ -516,7 +516,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 26,
+   "execution_count": 20,
    "metadata": {
     "collapsed": true
    },
@@ -535,7 +535,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 41,
+   "execution_count": 21,
    "metadata": {
     "collapsed": true
    },
@@ -552,7 +552,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 59,
+   "execution_count": 22,
    "metadata": {},
    "outputs": [
     {
@@ -574,7 +574,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 86,
+   "execution_count": 23,
    "metadata": {
     "collapsed": true
    },
@@ -631,7 +631,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 87,
+   "execution_count": 24,
    "metadata": {
     "collapsed": true
    },
@@ -643,7 +643,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 88,
+   "execution_count": 25,
    "metadata": {},
    "outputs": [
     {
@@ -667,7 +667,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 89,
+   "execution_count": 26,
    "metadata": {},
    "outputs": [
     {
@@ -710,7 +710,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 165,
+   "execution_count": 27,
    "metadata": {
     "collapsed": true
    },
@@ -737,7 +737,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 166,
+   "execution_count": 28,
    "metadata": {},
    "outputs": [
     {
@@ -746,7 +746,7 @@
        "dict_keys([230])"
       ]
      },
-     "execution_count": 166,
+     "execution_count": 28,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -757,7 +757,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 167,
+   "execution_count": 29,
    "metadata": {},
    "outputs": [
     {
@@ -766,7 +766,7 @@
        "341"
       ]
      },
-     "execution_count": 167,
+     "execution_count": 29,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -793,12 +793,12 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Auxliar da função **busca_frase**: compara a proximidade entre termos de duas listas e devolve a média dos valores quando proximos. Utilziamos a média, pois ela capta os termos que estão próximos, pelo menos boa parte do conjunto de tokens próximos. "
+    "Auxliar da função **busca_frase**: compara a proximidade entre termos de duas listas e devolve a média dos valores quando proximos. Utilizamos a média, pois ela capta os termos que estão próximos, pelo menos boa parte do conjunto de tokens próximos. "
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 318,
+   "execution_count": 30,
    "metadata": {
     "collapsed": true
    },
@@ -817,7 +817,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 359,
+   "execution_count": 31,
    "metadata": {
     "collapsed": true
    },
@@ -851,16 +851,44 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 362,
+   "execution_count": 61,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "def busca_frase(frase, indice):\n",
+    "    tokens = [stemmer.stem(token.lower()) for token in WordPunctTokenizer().tokenize(frase) if token not in swu]\n",
+    " \n",
+    "    matches = defaultdict(lambda:defaultdict(lambda:set([])))\n",
+    "    for token in tokens:\n",
+    "        matches[token] = indice[token]\n",
+    "    \n",
+    "    doc_pos = set(matches[tokens[0]])\n",
+    "    for tok in tokens:\n",
+    "        doc_pos = doc_pos.intersection(set(matches[token]))\n",
+    "        \n",
+    "    resultado = set([]) \n",
+    "    for doc in doc_pos:\n",
+    "        for pos in matches[tokens[0]][doc]:\n",
+    "            if all((pos + token_id + 1 in matches[token][doc]) for token_id, token in enumerate(tokens[1:len(tokens)])):\n",
+    "                resultado.add(doc) \n",
+    "                \n",
+    "    return resultado"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 62,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "defaultdict(list, {230: [10018, 10314, 13638, 13700, 13742, 36264, 39560]})"
+       "{230}"
       ]
      },
-     "execution_count": 362,
+     "execution_count": 62,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -870,10 +898,77 @@
    ]
   },
   {
+   "cell_type": "code",
+   "execution_count": 63,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "set()"
+      ]
+     },
+     "execution_count": 63,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "busca_frase(\"ressaca de olhos\", indice_frase)"
+   ]
+  },
+  {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "De fato, \"olhos de ressaca\" e como Machado de Assis em Dom Casmurro, define os olhos de Capitu."
+    "De fato, \"olhos de ressaca\" é como Machado de Assis em Dom Casmurro, define os olhos de Capitu."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 64,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{230}"
+      ]
+     },
+     "execution_count": 64,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "busca_frase(\"olhos de cigana oblíqua e dissimulada\", indice_frase)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 65,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "set()"
+      ]
+     },
+     "execution_count": 65,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "busca_frase(\"olhos de cigana dissimulada e oblíqua\", indice_frase)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "De fato, trata-se de uma passagem do livro Dom Casmurro de Machado de Assis."
    ]
   },
   {
@@ -885,31 +980,113 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": null,
+   "cell_type": "markdown",
    "metadata": {
     "collapsed": true
    },
-   "outputs": [],
-   "source": []
+   "source": [
+    "A ideia é criar a nova função de busca reduzindo os termos procurados, dando prioridade aos termos que estiverem na frente da frase procurada\n",
+    "\n",
+    "Para melhorar a busca vamos criar uma função que desativa a ordem obrigatória e que aumenta a distância possível entre as palavras\n"
+   ]
   },
   {
    "cell_type": "code",
-   "execution_count": null,
-   "metadata": {
-    "collapsed": true
-   },
+   "execution_count": 69,
+   "metadata": {},
    "outputs": [],
-   "source": []
+   "source": [
+    "import whoosh\n",
+    "from whoosh.index import create_in, open_dir\n",
+    "from whoosh.fields import *\n",
+    "from whoosh import qparser\n",
+    "from whoosh.qparser import QueryParser"
+   ]
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 70,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "schema = Schema(content=TEXT(phrase=True, stored=True))\n",
+    "\n",
+    "if os.path.exists('indexdir'):\n",
+    "    ix = open_dir('indexdir')\n",
+    "else:\n",
+    "    os.mkdir('indexdir')\n",
+    "    ix = create_in(\"indexdir\", schema)\n",
+    "    writer = ix.writer()\n",
+    "    for txt in textos:\n",
+    "        writer.add_document(content=txt)\n",
+    "    writer.commit()\n",
+    "\n",
+    "\n",
+    "searcher = ix.searcher()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 75,
    "metadata": {
     "collapsed": true
    },
    "outputs": [],
-   "source": []
+   "source": [
+    " def busca_frase_alt(frase, indice):\n",
+    "        \n",
+    "    tokens = [stemmer.stem(token.lower()) for token in WordPunctTokenizer().tokenize(frase) if token not in swu]\n",
+    " \n",
+    "    resultado = busca_frase(frase, indice)\n",
+    "                \n",
+    "    if resultado == set([]):\n",
+    "        searcher = ix.searcher()\n",
+    "        query = QueryParser(\"content\", ix.schema).parse(frase)\n",
+    "        resultado_alt = searcher.search(query)\n",
+    "        return resultado_alt.docs()\n",
+    "    else:\n",
+    "        return resultado"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 76,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{230}"
+      ]
+     },
+     "execution_count": 76,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "busca_frase_alt(\"olhos de cigana dissimulada e oblíqua\", indice_frase)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 78,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{82, 193, 224, 230, 244}"
+      ]
+     },
+     "execution_count": 78,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "busca_frase_alt(\"ressaca de olhos\", indice_frase)"
+   ]
   }
  ],
  "metadata": {
