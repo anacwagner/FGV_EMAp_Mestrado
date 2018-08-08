@@ -1,3 +1,3 @@
-# Sistema de Recuperação de Informaçõe (SRI) 2018
+# Dsicplina: Introdução à Recuperação de Informações (IRI) 2018
 
 Professor: Flávio Coelho
