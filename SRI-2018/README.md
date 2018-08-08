@@ -1,3 +1,3 @@
-# Dsicplina: Introdução à Recuperação de Informações (IRI) 2018
+# Introdução à Recuperação de Informações (IRI) 2018
 
 Professor: Flávio Coelho
