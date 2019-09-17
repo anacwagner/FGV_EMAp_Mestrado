@@ -1,3 +1,3 @@
-# Introdução à Recuperação de Informações (IRI)
+# Sistemas de Recuperação de Informações (SRI)
 
-Professor: Flávio Coelho
+Professor: Flávio Codeço Coelho
