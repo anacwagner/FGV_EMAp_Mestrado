@@ -9,9 +9,9 @@ Trabalhos e exercícios propostos pelas disciplinas do [mestrado](https://emap.f
 
 **Professor**: [Renato Rocha Souza](https://emap.fgv.br/corpo-docente/renato-rocha-souza)
 
-Projeto Kaggle: [TalkingData](https://github.com/anacwagner/Kaggle_TalkingData) - TalkingData AdTracking Fraud Detection Challenge
+**Projeto Kaggle**: [TalkingData](https://github.com/anacwagner/Kaggle_TalkingData) - TalkingData AdTracking Fraud Detection Challenge
 
-Projeto Final (Análise Exploratória dos Dados): [Redes de Citações Acadêmicas - WoS](https://nbviewer.jupyter.org/github/anacwagner/WOS_CitationNetworks/blob/master/Análise%20de%20Resultados%20-%20Rede%20de%20Citações%20-%20plotly.ipynb)
+**Projeto Final**: [Redes de Citações Acadêmicas - WoS](https://nbviewer.jupyter.org/github/anacwagner/WOS_CitationNetworks/blob/master/Análise%20de%20Resultados%20-%20Rede%20de%20Citações%20-%20plotly.ipynb) - Análise Exploratória dos Dados
 
 ### [Visualização de Informação](https://emap.fgv.br/disciplina/mestrado/visualizacao-de-informacao)
 
