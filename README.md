@@ -19,10 +19,14 @@ Trabalhos e exercícios propostos pelas disciplinas do [mestrado](https://emap.f
 
 **Projeto**: [Zika](https://github.com/anacwagner/zika-dataviz) - Casos de Zika no Município do Rio de Janeiro
 
-### [SRI - Sistemas de Recuperação de Informações](https://github.com/anacwagner/FGV_EMAp_Mestrado/tree/master/SRI-2018) 
+### [SRI - Sistemas de Recuperação de Informações](https://emap.fgv.br/disciplina/mestrado/sistemas-de-recuperacao-de-informacoes) 
 
 **Professor**: [Flávio Codeço Coelho](https://emap.fgv.br/corpo-docente/flavio-codeco-coelho)
 
-### [Redes Complexas](https://github.com/anacwagner/FGV_EMAp_Mestrado/tree/master/Redes-Complexas-2019)
+Trabalho: [Listas de Exercícios](https://github.com/anacwagner/FGV_EMAp_Mestrado/tree/master/SRI-2018)
+
+### [Redes Complexas]()
 
 **Professor**: [Moacyr Alvim Horta Barbosa da Silva](https://emap.fgv.br/corpo-docente/moacyr-alvim-horta-barbosa-silva)
+
+**Trabalho**: [Lista de Exercícios](https://github.com/anacwagner/FGV_EMAp_Mestrado/tree/master/Redes-Complexas-2019)
