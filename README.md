@@ -25,7 +25,7 @@ Trabalhos e exercícios propostos pelas disciplinas do [mestrado](https://emap.f
 
 Trabalho: [Listas de Exercícios](https://github.com/anacwagner/FGV_EMAp_Mestrado/tree/master/SRI-2018)
 
-### [Redes Complexas]()
+### [Redes Complexas](https://emap.fgv.br/disciplina/mestrado/grafos-redes-sociais-conectividade)
 
 **Professor**: [Moacyr Alvim Horta Barbosa da Silva](https://emap.fgv.br/corpo-docente/moacyr-alvim-horta-barbosa-silva)
 
